@@ -21,7 +21,7 @@ import type { AttachmentActionsProps } from './AttachmentActions';
 import type { AudioProps } from './Audio';
 import type { CardProps } from './Card';
 import type { FileAttachmentProps } from './FileAttachment';
-import type { GalleryProps, ImageProps } from '../Gallery';
+import type { GalleryProps } from '../Gallery';
 import type { ActionHandlerReturnType } from '../Message/hooks/useActionHandler';
 
 import type { DefaultAttachmentType } from '../../types/types';
@@ -42,7 +42,7 @@ export type AttachmentProps<At extends DefaultAttachmentType = DefaultAttachment
   /** Custom UI component for displaying a gallery of image type attachments, defaults to and accepts same props as: [Gallery](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Gallery/Gallery.tsx) */
   Gallery?: React.ComponentType<GalleryProps<At>>;
   /** Custom UI component for displaying an image type attachment, defaults to and accepts same props as: [Image](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Gallery/Image.tsx) */
-  Image?: React.ComponentType<ImageProps>;
+  // Image?: React.ComponentType<ImageProps>;
   /** Custom UI component for displaying a media type attachment, defaults to `ReactPlayer` from 'react-player' */
   Media?: React.ComponentType<ReactPlayerProps>;
 };

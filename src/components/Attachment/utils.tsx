@@ -5,7 +5,7 @@ import { AttachmentActions as DefaultAttachmentActions } from './AttachmentActio
 import { Audio as DefaultAudio } from './Audio';
 import { Card as DefaultCard } from './Card';
 import { FileAttachment as DefaultFile } from './FileAttachment';
-import { Gallery as DefaultGallery, ImageComponent as DefaultImage } from '../Gallery';
+import { Gallery as DefaultGallery } from '../Gallery';
 
 import type { Attachment } from 'stream-chat';
 import type { AttachmentProps } from './Attachment';
@@ -129,14 +129,17 @@ export const renderGallery = <At extends DefaultAttachmentType = DefaultAttachme
 export const renderImage = <At extends DefaultAttachmentType = DefaultAttachmentType>(
   props: RenderAttachmentProps<At>,
 ) => {
-  const { attachment, Image = DefaultImage } = props;
+  const {
+    attachment,
+    // Image
+  } = props;
 
   if (attachment.actions && attachment.actions.length) {
     return renderAttachmentWithinContainer({
       attachment,
       children: (
         <div className='str-chat__attachment' key={`key-image-${attachment.id}`}>
-          {<Image {...attachment} />}
+          {/* {<Image {...attachment} />} */}
           {renderAttachmentActions(props)}
         </div>
       ),
@@ -146,7 +149,7 @@ export const renderImage = <At extends DefaultAttachmentType = DefaultAttachment
 
   return renderAttachmentWithinContainer({
     attachment,
-    children: <Image {...attachment} key={`key-image-${attachment.id}`} />,
+    // children: <Image {...attachment} key={`key-image-${attachment.id}`} />,
     componentType: 'image',
   });
 };

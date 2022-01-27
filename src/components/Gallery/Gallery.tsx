@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import { ModalComponent as ModalWrapper } from './ModalWrapper';
 
@@ -36,13 +36,13 @@ const UnMemoizedGallery = <At extends DefaultAttachmentType = DefaultAttachmentT
     }
   };
 
-  const formattedArray = useMemo(
-    () =>
-      images.map((image) => ({
-        source: image.image_url || image.thumb_url || '',
-      })),
-    [images],
-  );
+  // const formattedArray = useMemo(
+  //   () =>
+  //     images.map((image) => ({
+  //       source: image.image_url || image.thumb_url || '',
+  //     })),
+  //   [images],
+  // );
 
   const renderImages = images.slice(0, 3).map((image, i) => (
     <div
@@ -74,7 +74,7 @@ const UnMemoizedGallery = <At extends DefaultAttachmentType = DefaultAttachmentT
         </div>
       )}
       <ModalWrapper
-        images={formattedArray}
+        // images={formattedArray}
         index={index}
         modalIsOpen={modalOpen}
         toggleModal={() => setModalOpen(!modalOpen)}
